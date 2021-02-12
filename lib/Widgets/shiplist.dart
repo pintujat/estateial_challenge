@@ -65,7 +65,7 @@ class ShipList extends StatelessWidget {
                     ),
                   );
                 },
-                itemCount: myData == null ? 0 : 4,
+                itemCount: myData == null ? 0 : myData.length,
               );
             }),
       ),

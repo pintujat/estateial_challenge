@@ -215,7 +215,7 @@ class MyTabBarView extends StatelessWidget {
                         ),
                       );
                     },
-                    itemCount: myData == null ? 0 : 3,
+                    itemCount: myData == null ? 0 : myData.length,
                   );
                 }),
           ),
