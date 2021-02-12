@@ -9,7 +9,13 @@ class LaunchDetail extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20),
         child: Scaffold(
           appBar: AppBar(
-            leading: Icon(Icons.arrow_back),
+            leading: GestureDetector(
+                onTap: () {
+                  _navigateToPreviousScreen(context);
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                )),
             backgroundColor: Colors.black,
             actions: <Widget>[
               Padding(
@@ -206,5 +212,9 @@ class LaunchDetail extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _navigateToPreviousScreen(BuildContext context) {
+    Navigator.pop(context);
   }
 }
