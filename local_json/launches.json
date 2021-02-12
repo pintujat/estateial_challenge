@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "Starlink 2",
+        "category" : "CCAES SLC 40",
+        "launchdate" : "16-12-2014",
+        "logo_url" : "lib/assets/falconsat01.png"
+    },
+    {
+        "name" : "DemoSat",
+        "category" : "AAAES SLC 40",
+        "launchdate" : "16-12-2014",
+        "logo_url" : "lib/assets/falcon9.png"
+    },
+    {
+        "name" : "Falcon 9 Test",
+        "category" : "CCAES SEC 40",
+        "launchdate" : "16-12-2014",
+        "logo_url" : "lib/assets/demosat02.png"
+    },
+    {
+        "name" : "CRS - 2",
+        "category" : "CAAES SLC 40",
+        "launchdate" : "16-12-2014",
+        "logo_url" : "lib/assets/crs.png"
+    }
+]
