@@ -8,9 +8,9 @@ class ShipList extends StatelessWidget {
     return Container(
       child: Center(
         child: FutureBuilder(
-            future: DefaultAssetBundle.of(context)
-                .loadString("local_json/launches.json"),
+            future: DefaultAssetBundle.of(context).loadString(kLaunchjson),
             builder: (context, snapshot) {
+              //fetching data from launches.json
               var myData = json.decode(snapshot.data.toString());
               return ListView.builder(
                 itemBuilder: (BuildContext context, int index) {

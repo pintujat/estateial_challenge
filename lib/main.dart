@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      //Setting home screen as the starting screen
       home: Home(title: 'SpaceX'),
     );
   }

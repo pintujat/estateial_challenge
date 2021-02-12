@@ -16,21 +16,21 @@ class NavigatorTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "Upcoming",
+            kCategory1,
             style: kTabSize,
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "Launches",
+            kCategory2,
             style: kTabSize,
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "Rockets",
+            kCategory3,
             style: kTabSize,
           ),
         ),

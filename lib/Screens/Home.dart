@@ -32,7 +32,7 @@ class _MyHomePageState extends State<Home> {
       child: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: DefaultTabController(
-          length: 3,
+          length: 3, //length of the categories in tab bar
           child: Scaffold(
             backgroundColor: Colors.black,
             body: Stack(
@@ -76,19 +76,25 @@ class _MyHomePageState extends State<Home> {
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40))),
+                            topRight: Radius.circular(
+                                40))), //making the top left and top right corner to be circular
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[NavigatorTab()],
+                      //Navigate along the tab bar
+                      children: <Widget>[
+                        NavigatorTab()
+                      ], //widget to display categories
                     ),
                   ),
                 ),
+                //Tab data display area
                 Positioned(
                   top: 200,
                   bottom: 0,
                   left: 10,
                   right: 10,
-                  child: MyTabBarView(),
+                  child:
+                      MyTabBarView(), //widget to display data in tab bar view
                 )
               ],
             ),

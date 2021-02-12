@@ -10,82 +10,65 @@ class MyTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: <Widget>[
+        //Display for the Tab 1
         Column(
           children: <Widget>[
             Expanded(
-              child: FutureBuilder(
-                  future: DefaultAssetBundle.of(context)
-                      .loadString("local_json/launches.json"),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      var myData = json.decode(snapshot.data.toString());
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(left: 10, right: 10, top: 20),
-                        child: GestureDetector(
-                          onTap: () async {
-                            await _navigateToNextScreen(context);
-                          },
-                          child: Card(
-                            shadowColor: Colors.grey[50],
-                            elevation: 4.0,
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                      width: 100,
-                                      height: 100,
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 20),
-                                      child:
-                                          Image.asset(myData[3]["logo_url"])),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 50),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text("Launch",
-                                          style: klaunchesTitlestyle),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        myData[0]["name"],
-                                        style: klaunchesNamestyle,
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        myData[0]["category"],
-                                        style: klaunchesDescstyle,
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        kUpEventDate,
-                                        style: klaunchesDescstyle,
-                                      ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+              child: GestureDetector(
+                onTap: () async {
+                  await _navigateToNextScreen(context);
+                },
+                child: Card(
+                  shadowColor: Colors.grey[50],
+                  elevation: 4.0,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                            width: 100,
+                            height: 100,
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: Image.asset(kupcomingImage)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 50),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(kUpcomingTitle, style: klaunchesTitlestyle),
+                            SizedBox(
+                              height: 5,
                             ),
-                          ),
+                            Text(
+                              kupcomingName,
+                              style: klaunchesNamestyle,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              kupcomingCategory,
+                              style: klaunchesDescstyle,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              kUpEventDate,
+                              style: klaunchesDescstyle,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                          ],
                         ),
-                      );
-                    } else {
-                      return Text("Loading");
-                    }
-                  }),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
             Expanded(
               flex: 3,
@@ -96,7 +79,7 @@ class MyTabBarView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Text(
-                      "LAUNCH DATE",
+                      kLaunchDateTitle,
                       style: klaunchesTitlestyle,
                     ),
                     SizedBox(
@@ -110,7 +93,7 @@ class MyTabBarView extends StatelessWidget {
                       height: 10.0,
                     ),
                     Text(
-                      "LAUNCH SITE",
+                      kLaunchSiteTitle,
                       style: klaunchesTitlestyle,
                     ),
                     SizedBox(
@@ -124,7 +107,7 @@ class MyTabBarView extends StatelessWidget {
                       height: 10.0,
                     ),
                     Text(
-                      "LAUNCH COUNTDOWN",
+                      kLaunchCountTitle,
                       style: klaunchesTitlestyle,
                     ),
                     SizedBox(
@@ -140,12 +123,14 @@ class MyTabBarView extends StatelessWidget {
             )
           ],
         ),
+        //Display for the Tab 2
         ShipList(),
+        //Display for the Tab 3
         Container(
           child: Center(
             child: FutureBuilder(
-                future: DefaultAssetBundle.of(context)
-                    .loadString("local_json/rockets.json"),
+                future: DefaultAssetBundle.of(context).loadString(kRocketjson),
+                //fetching data from launches.json
                 builder: (context, snapshot) {
                   var myData = json.decode(snapshot.data.toString());
                   return ListView.builder(
@@ -224,6 +209,7 @@ class MyTabBarView extends StatelessWidget {
     );
   }
 
+//Navigation on Tab View 1 to display launch details
   _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => LaunchDetail()));
